@@ -21,12 +21,12 @@ const validAnagram = (string1, string2) => {
   const frequencyCounter1 = {};
   const frequencyCounter2 = {};
 
-  for (char of string1) {
-    frequencyCounter1[char] = (frequencyCounter1[char] || 0) + 1;
+  for (let character of string1) {
+    frequencyCounter1[character] = (frequencyCounter1[character] || 0) + 1;
   }
 
-  for (char of string2) {
-    frequencyCounter2[char] = (frequencyCounter2[char] || 0) + 1;
+  for (let character of string2) {
+    frequencyCounter2[character] = (frequencyCounter2[character] || 0) + 1;
   }
 
   for (let i = 0; i < string1.length; i++) {
