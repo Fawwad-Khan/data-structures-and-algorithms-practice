@@ -18,27 +18,21 @@ const validAnagram = (string1, string2) => {
     return false;
   }
 
-  const frequencyCounter1 = {};
-  const frequencyCounter2 = {};
-
-  for (let character of string1) {
-    frequencyCounter1[character] = (frequencyCounter1[character] || 0) + 1;
-  }
+  const frequencyCounter = {};
 
   for (let character of string2) {
-    frequencyCounter2[character] = (frequencyCounter2[character] || 0) + 1;
+    frequencyCounter[character] = (frequencyCounter[character] || 0) + 1;
   }
 
   for (let i = 0; i < string1.length; i++) {
     const charToCheck = string1[i];
-    if (!(charToCheck in frequencyCounter2)) {
+    if (!frequencyCounter[charToCheck]) {
       return false;
-    }
-    if (frequencyCounter1[charToCheck] !== frequencyCounter2[charToCheck]) {
-      return false;
+    } else {
+      frequencyCounter[charToCheck] -= 1;
     }
   }
-
+  console.log(frequencyCounter);
   return true;
 };
 
